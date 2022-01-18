@@ -94,18 +94,26 @@ body{
     align-items: center;
     justify-content: center;
 }
-#home h1{
+#home .header{
     font-size: 5em;
     text-align: center;
 }
-#home .header{
-    font-size: 2.7em;
-    text-align: center;
-}
 #home .sub-header{
+    /* font-size: 2.7em;
+    text-align: center; */
+}
+#home .sub-header .typewriter{
+    width:0;
+}
+
+#home .sub-title{
     font-size:1.6em;
     text-align:center;
     color:#aaa;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    -webkit-box-sizing:content-box;
+    box-sizing:content-box;
 }
 #main #about{
     background-color: rgb(252, 252, 252);
