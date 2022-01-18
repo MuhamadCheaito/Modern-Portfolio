@@ -53,12 +53,13 @@ body{
 }
 .sidebar{
     position: fixed;
+    z-index: 1;
     min-width:300px;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgb(228, 228, 228);
+    background-color: rgb(248, 248, 248);
     text-align: center;
     padding-top: 30px;
     transform: translateX(-500px);
@@ -70,12 +71,21 @@ body{
 .sidebar ul li{
     list-style: none;
     margin: 50px auto;
+    font-size: 2.2em;
 }
 .sidebar ul li a:link{
     text-decoration: none;
     color: rgb(63, 63, 63);
-    font-size: 2.2em;
     font-weight: lighter;
+}
+.sidebar ul li a:visited{
+    color: rgb(63, 63, 63);
+}
+.sidebar ul li a:active{
+    color: rgb(63, 63, 63);
+}
+.sidebar ul li a:hover{
+    border-bottom:4px solid rgb(34, 80, 150);
 }
 #main{
     position: relative;
@@ -93,35 +103,103 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: rgb(244, 245, 240);
+    flex-wrap: wrap;
 }
 #home .header{
     font-size: 5em;
     text-align: center;
 }
 #home .sub-header{
-    /* font-size: 2.7em;
-    text-align: center; */
+    font-size: 1.8em;
+    text-align: center;
+    font-weight: 300;
 }
-#home .sub-header .typewriter{
-    width:0;
+#home .typewriter{
+		overflow: hidden;
+		border-right: .15em solid black;
+		white-space: nowrap;
+		letter-spacing: 5px;
+		animation: typing 5s steps(50, end),blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+	0% {
+		width: 0;
+	}
+    25%{
+        width: 0;
+    }
+	100% {
+		width: 25vw;
+	}
+}
+
+@keyframes blink-caret {
+	from,to {
+		border-color: transparent;
+	}
+	50% {
+		border-color: black;
+	}
+}
+#arrow{
+    position: absolute;
+    bottom: 0;
 }
 
 #home .sub-title{
     font-size:1.6em;
     text-align:center;
     color:#aaa;
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
-    -webkit-box-sizing:content-box;
-    box-sizing:content-box;
 }
 #main #about{
     background-color: rgb(252, 252, 252);
 }
+
+#main #about .about-content{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 1.1em;
+    line-height: 2.5;
+    gap:10px;
+    margin-top: 30px;
+}
+@media screen and (max-width:840px) {
+    #main #about .about-content{
+        font-size: .8em;
+    }
+}
+#main #about .about-content .card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+}
+#main #about .about-content .card-icon{
+    font-size:2.6em;
+}
 #main #project{
-    background-color: rgb(79, 81, 83);
+    background-color: rgb(244, 245, 240);
 }
 
 #main #contact{
     background-color: rgb(255, 254, 254);
+}
+.title{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+}
+.title h2{
+    font-size: 2.3em;
+}
+.title span{
+    background-color: black;
+    width: 15%;
+    height: 3px;
+    margin:0 5px;
 }
