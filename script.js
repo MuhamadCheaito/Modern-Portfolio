@@ -48,19 +48,6 @@ gsap.fromTo('.sub-title',
     { duration: 6, opacity: 0, x: -500 },
     { duration: 2, delay: 5, ease: "power1.out", opacity: 1, x: 0 });
 
-gsap.registerPlugin(ScrollTrigger);
-
-gsap.to(".card", {
-        scrollTrigger: {
-            trigger:'#main #about',
-            // start:"top center",
-            // toggleActions:"restart pause resume none",
-            markers:true,
-        },
-        rotation: 360,
-        duration: 3
-    });
-
 const slides = document.querySelectorAll('.slide')
 const leftBtn = document.getElementById('left')
 const rightBtn = document.getElementById('right')
