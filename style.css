@@ -133,6 +133,7 @@ body {
     position: fixed;
     top: 5%;
     right: 5%;
+    z-index: 5;
     cursor: pointer;
     overflow: hidden;
 }
@@ -182,6 +183,7 @@ body {
     position: fixed;
     top: 20%;
     right: 5%;
+    z-index: 5;
     cursor: pointer;
     overflow: hidden;
 }
@@ -194,7 +196,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* background-color: rgb(248, 248, 248); */
     text-align: center;
     padding-top: 30px;
     transform: translateX(-500px);
@@ -213,16 +214,7 @@ body {
 
 .sidebar ul li a:link {
     text-decoration: none;
-    /* color: rgb(63, 63, 63); */
     font-weight: lighter;
-}
-
-.sidebar ul li a:visited {
-    /* color: rgb(63, 63, 63); */
-}
-
-.sidebar ul li a:active {
-    /* color: rgb(63, 63, 63); */
 }
 
 .sidebar ul li a:hover {
@@ -331,6 +323,7 @@ body {
     #main #about .about-content .card:nth-child(2) > .card-body{
         padding-right: 20px;
         padding-left: 20px;
+        border-radius: 10%;
     }
 
 }
@@ -338,7 +331,85 @@ body {
     font-size: 2.6em;
 }
 
-
+#main #project{
+    position: relative;
+}
+.slider-container{
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    height: 70%;
+    width: 70%;
+    overflow: hidden;
+    margin:0 auto;
+    margin-top: 30px;
+    position: relative;
+}
+.slide{
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    background-position: center center;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 0.4s ease;
+    z-index: 1;
+}
+.slide .app-title{
+    color: #fff;
+    font-size: 2em;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:5px;
+    background-color: rgba(0, 0, 0, .3);
+}
+.slide .app-title button{
+     border: 2px solid #fff;
+     border-radius: 10px;
+     background-color: rgba(0, 0, 0, .4);
+     padding:10px;
+     color:#fff;
+     font-size: .6em;
+     outline: 0;
+}
+.slide .app-title button:hover{
+    border: 2px solid #fff;
+    border-radius: 10px;
+    background-color: #fff;
+    padding:10px;
+    color:#000;
+    font-size: .6em;
+    outline: 0;
+    cursor: pointer;
+}
+.slide.active{
+    opacity: 1;
+}
+.arrow {
+    position: absolute;
+    background-color: transparent;
+    padding:20px;
+    font-size: 30px;
+    border: 2px solid orange;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    margin-top: 30px;
+}
+.arrow:focus{
+    outline: 0;
+}
+.left-arrow{
+    left:calc(15vw - 65px);
+}
+.right-arrow{
+    right:calc(15vw - 65px);
+}
 .title {
     display: flex;
     flex-direction: row;
