@@ -39,6 +39,7 @@ window.addEventListener('DOMContentLoaded', () => {
     loadTheme(getCurrentTheme());
 })
 
+
 gsap.fromTo('.header',
     { duration: 1, opacity: 0, scale: 5 },
     { duration: 2, ease: "power3.out", opacity: 1, scale: 1 });
@@ -46,6 +47,19 @@ gsap.fromTo('.header',
 gsap.fromTo('.sub-title',
     { duration: 6, opacity: 0, x: -500 },
     { duration: 2, delay: 5, ease: "power1.out", opacity: 1, x: 0 });
+
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.to(".card", {
+        scrollTrigger: {
+            trigger:'#main #about',
+            // start:"top center",
+            // toggleActions:"restart pause resume none",
+            markers:true,
+        },
+        rotation: 360,
+        duration: 3
+    });
 
 const slides = document.querySelectorAll('.slide')
 const leftBtn = document.getElementById('left')
@@ -58,7 +72,7 @@ let activeTitle = 0
 rightBtn.addEventListener('click', () => {
     activeSlide++
     activeTitle++
-    
+
     if (activeSlide > slides.length - 1 && activeTitle > appTitles.length - 1) {
         activeSlide = 0
         activeTitle = 0
@@ -91,3 +105,7 @@ function setActiveTitle() {
     })
     appTitles[activeTitle].classList.add('active')
 }
+
+$(document).ready(function () {
+    $("html, body").animate({ scrollTop: "#" });
+});

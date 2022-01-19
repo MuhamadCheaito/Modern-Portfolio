@@ -225,7 +225,7 @@ body {
     position: relative;
     -webkit-overflow-scrolling: touch;
     overflow-y: scroll;
-    scroll-snap-type: y proximity;
+    scroll-snap-type: y mandatory;
     height: 100vh;
 }
 
@@ -417,11 +417,16 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
     height: 50vh;
     width: 50%;
     gap: 10px;
     flex-wrap: wrap;
+}
+#contact .contact-card-group{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 #contact .contact-cards .contact-card{
     display: flex;
@@ -429,10 +434,10 @@ body {
     justify-content: center;
     align-items: flex-start;
     border-radius: 10px;
-    gap: 8px;
+    gap: 10px;
     background-color: var(--bkg3);
     box-shadow: var(--shadow);
-    font-size: 1em; 
+    font-size: 1.2em; 
 
 }
 #contact .contact-cards .contact-card a{
@@ -440,6 +445,7 @@ body {
 }
 #contact .contact-cards .contact-card:first-child{
     padding:1.3em;
+    width: 240px;
 }
 #contact .contact-cards .contact-card:last-child{
     padding:1em;
