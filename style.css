@@ -240,6 +240,7 @@ body {
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    gap: 10px;
 }
 
 #home .header {
@@ -410,6 +411,38 @@ body {
 }
 .right-arrow{
     right:calc(15vw - 65px);
+}
+
+#contact .contact-cards{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    height: 50vh;
+    width: 50%;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+#contact .contact-cards .contact-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    border-radius: 10px;
+    gap: 8px;
+    background-color: var(--bkg3);
+    box-shadow: var(--shadow);
+    font-size: 1em; 
+
+}
+#contact .contact-cards .contact-card a{
+    text-decoration: none;
+}
+#contact .contact-cards .contact-card:first-child{
+    padding:1.3em;
+}
+#contact .contact-cards .contact-card:last-child{
+    padding:1em;
 }
 .title {
     display: flex;
