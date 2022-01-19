@@ -417,10 +417,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50vh;
-    width: 50%;
+    height: 40vh;
+    width: 60%;
     gap: 10px;
     flex-wrap: wrap;
+    margin-top: 10px;
 }
 #contact .contact-card-group{
     display: flex;
@@ -455,7 +456,7 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding-top: 50px;
+
 }
 
 .title h2 {
