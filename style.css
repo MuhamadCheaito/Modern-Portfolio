@@ -299,7 +299,7 @@ body {
     flex-wrap: wrap;
     font-size: 1.1em;
     line-height: 2.5;
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 @media screen and (max-width:840px) {
@@ -319,7 +319,30 @@ body {
         border-right: 2px solid var(--text);
         border-left: 2px solid var(--text);
         margin-right: 10px;
+        position: relative;
         margin-left: 10px;
+    }
+    #main #about .about-content .card:nth-child(2)::before{
+        filter:  blur(9px);
+        content: '';
+        left: -5px;
+        top: 0;
+        position: absolute;
+        background-color: var(--text);
+        width: 2px;
+        z-index: 10;
+        height: 100%;
+    }
+    #main #about .about-content .card:nth-child(2)::after{
+        filter:  blur(9px);
+        content: '';
+        right: -5px;
+        top: 0;
+        position: absolute;
+        background-color: var(--text);
+        width: 2px;
+        z-index: 10;
+        height: 100%;
     }
     #main #about .about-content .card:nth-child(2) > .card-body{
         padding-right: 20px;
@@ -417,7 +440,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 40vh;
+    height: 50vh;
     width: 60%;
     gap: 10px;
     flex-wrap: wrap;
@@ -446,10 +469,13 @@ body {
 }
 #contact .contact-cards .contact-card:first-child{
     padding:1.3em;
-    width: 240px;
+    width: 250px;
 }
 #contact .contact-cards .contact-card:last-child{
-    padding:1em;
+    padding:1.3em 1.2em;
+}
+#contact .contact-cards .contact-card a:hover{
+    color:rgb(60, 135, 233);
 }
 .title {
     display: flex;
