@@ -1,15 +1,126 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
-*{
+
+* {
     box-sizing: border-box;
     margin: 0;
-    padding:0;
+    padding: 0;
 }
 
-body{
-    font-family: 'Roboto',sans-serif;
+:root {
+    scroll-behavior: smooth;
+    scroll-padding-top: 2rem;
+
+    --text-light: hsl(0, 0%, 0%);
+    --bkg1-light: hsl(0, 0%, 93%);
+    --bkg2-light: hsl(26, 37%, 96%);
+    --bkg3-light: hsl(0, 0%, 100%);
+    --shadow-light: 20px 20px 50px hsl(255, 36%, 17%, .35),
+        -30px -30px 50px hsl(26, 37%, 96%, .15);
+
+    --text-dark: rgb(255, 255, 255);
+    --bkg1-dark: hsl(218, 15.4%, 10.2%);
+    --bkg2-dark: hsl(218, 14.7%, 18.7%);
+    --bkg3-dark: rgb(0, 0, 0);
+
+    --shadow-dark: 20px 20px 50px hsl(255, 36%, 17%, .35),
+        -30px -30px 50px hsl(26, 37%, 26%, .15);
+
+}
+
+@media(prefers-color-scheme: dark) {
+    :root {
+        --text: var(--text-dark);
+        --bkg1: var(--bkg1-dark);
+        --bkg2: var(--bkg2-dark);
+        --bkg3: var(--bkg3-dark);
+        --shadow: var(--shadow-dark);
+    }
+}
+
+@media(prefers-color-scheme: light) {
+    :root {
+        --text: var(--text-light);
+        --bkg1: var(--bkg1-light);
+        --bkg2: var(--bkg2-light);
+        --bkg3: var(--bkg3-light);
+        --shadow: var(--shadow-light);
+    }
+}
+
+[color-scheme="dark"] {
+    --text: var(--text-dark);
+    --bkg1: var(--bkg1-dark);
+    --bkg2: var(--bkg2-dark);
+    --bkg3: var(--bkg3-dark);
+    --shadow: var(--shadow-dark);
+}
+
+[color-scheme="light"] {
+    --text: var(--text-light);
+    --bkg1: var(--bkg1-light);
+    --bkg2: var(--bkg2-light);
+    --bkg3: var(--bkg3-light);
+    --shadow: var(--shadow-light);
+}
+
+.text {
+    color: var(--text);
+}
+
+
+.bkg1 {
+    color: var(--bkg1);
+}
+
+.bkg2 {
+    color: var(--bkg2);
+}
+
+.bkg2--stroke {
+    stroke: var(--bkg2);
+}
+
+.bkg2--fill {
+    fill: var(--bkg2);
+}
+
+/* link color */
+.text-link {
+    color: var(--text);
+}
+
+.bkg1-link {
+    color: var(--bkg1);
+}
+
+.bkg2-link {
+    color: var(--bkg2);
+}
+
+/* background color */
+
+.text-bg {
+    background-color: var(--text);
+}
+
+.bkg1-bg {
+    background-color: var(--bkg1);
+}
+
+.bkg2-bg {
+    background-color: var(--bkg2);
+}
+
+.bkg3-bg {
+    background-color: var(--bkg3);
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
     overflow: hidden;
 }
-.hamburger-button{
+
+.hamburger-button {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -20,12 +131,13 @@ body{
     box-shadow: 0 10px 20px rgba(0, 0, 0, .3);
     border-radius: 10px;
     position: fixed;
-    top:5%;
+    top: 5%;
     right: 5%;
     cursor: pointer;
     overflow: hidden;
 }
-.hamburger-button span{
+
+.hamburger-button span {
     background-color: #000;
     height: 4px;
     margin: 3px;
@@ -33,173 +145,214 @@ body{
     border-radius: 4px;
     transition: 0.5s;
 }
-.hamburger-button span:nth-child(1){
+
+.hamburger-button span:nth-child(1) {
     width: 25px;
 }
-.hamburger-button span:nth-child(3){
+
+.hamburger-button span:nth-child(3) {
     width: 15px;
 }
-.hamburger-button.active span:nth-child(2){
+
+.hamburger-button.active span:nth-child(2) {
     transform: translateX(60px);
 }
-.hamburger-button.active span:nth-child(1){
-    width: 40px;
-    transform:translateY(10px) rotate(45deg)
 
+.hamburger-button.active span:nth-child(1) {
+    width: 40px;
+    transform: translateY(10px) rotate(45deg)
 }
-.hamburger-button.active span:nth-child(3){
+
+.hamburger-button.active span:nth-child(3) {
     width: 40px;
     transform: translateY(-10px) rotate(-45deg)
 }
-.sidebar{
+
+.light-dark-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    height: 70px;
+    width: 70px;
+    background-color: #fff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .3);
+    border-radius: 10px;
     position: fixed;
-    z-index: 1;
-    min-width:300px;
+    top: 20%;
+    right: 5%;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.sidebar {
+    position: fixed;
+    z-index: 100;
+    min-width: 300px;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgb(248, 248, 248);
+    /* background-color: rgb(248, 248, 248); */
     text-align: center;
     padding-top: 30px;
     transform: translateX(-500px);
     transition: 1s;
 }
-.sidebar.active{
+
+.sidebar.active {
     transform: translateX(0);
 }
-.sidebar ul li{
+
+.sidebar ul li {
     list-style: none;
     margin: 50px auto;
     font-size: 2.2em;
 }
-.sidebar ul li a:link{
+
+.sidebar ul li a:link {
     text-decoration: none;
-    color: rgb(63, 63, 63);
+    /* color: rgb(63, 63, 63); */
     font-weight: lighter;
 }
-.sidebar ul li a:visited{
-    color: rgb(63, 63, 63);
+
+.sidebar ul li a:visited {
+    /* color: rgb(63, 63, 63); */
 }
-.sidebar ul li a:active{
-    color: rgb(63, 63, 63);
+
+.sidebar ul li a:active {
+    /* color: rgb(63, 63, 63); */
 }
-.sidebar ul li a:hover{
-    border-bottom:4px solid rgb(34, 80, 150);
+
+.sidebar ul li a:hover {
+    border-bottom: 4px solid rgb(34, 80, 150);
 }
-#main{
+
+#main {
     position: relative;
     -webkit-overflow-scrolling: touch;
     overflow-y: scroll;
-    scroll-snap-type: y mandatory;
+    scroll-snap-type: y proximity;
     height: 100vh;
 }
-#main section{
+
+#main section {
     scroll-snap-align: start;
     height: 100vh;
 }
-#main #home{
+
+#main #home {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: rgb(244, 245, 240);
     flex-wrap: wrap;
 }
-#home .header{
+
+#home .header {
     font-size: 5em;
     text-align: center;
 }
-#home .sub-header{
+
+#home .sub-header {
     font-size: 1.8em;
     text-align: center;
     font-weight: 300;
 }
-#home .typewriter{
-		overflow: hidden;
-		border-right: .15em solid black;
-		white-space: nowrap;
-		letter-spacing: 5px;
-		animation: typing 5s steps(50, end),blink-caret .75s step-end infinite;
+
+#home .typewriter {
+    overflow: hidden;
+    border-right: .15em solid black;
+    white-space: nowrap;
+    letter-spacing: 5px;
+    animation: typing 5s steps(50, end), blink-caret .75s step-end infinite;
 }
 
 @keyframes typing {
-	0% {
-		width: 0;
-	}
-    25%{
+    0% {
         width: 0;
     }
-	100% {
-		width: 25vw;
-	}
+
+    25% {
+        width: 0;
+    }
+
+    100% {
+        width: 25vw;
+    }
 }
 
 @keyframes blink-caret {
-	from,to {
-		border-color: transparent;
-	}
-	50% {
-		border-color: black;
-	}
-}
-#arrow{
-    position: absolute;
-    bottom: 0;
+    from, to {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: var(--text);
+    }
 }
 
-#home .sub-title{
-    font-size:1.6em;
-    text-align:center;
-    color:#aaa;
-}
-#main #about{
-    background-color: rgb(252, 252, 252);
+#home .sub-title {
+    font-size: 1.6em;
+    text-align: center;
+    color: #aaa;
 }
 
-#main #about .about-content{
+
+#main #about .about-content {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     font-size: 1.1em;
     line-height: 2.5;
-    gap:10px;
     margin-top: 30px;
 }
+
 @media screen and (max-width:840px) {
-    #main #about .about-content{
+    #main #about .about-content {
         font-size: .8em;
     }
 }
-#main #about .about-content .card{
+
+#main #about .about-content .card {
     display: flex;
     flex-direction: column;
     align-items: center;
     max-width: 400px;
 }
-#main #about .about-content .card-icon{
-    font-size:2.6em;
+@media screen and (min-width:1200px) {
+    #main #about .about-content .card:nth-child(2){
+        border-right: 2px solid var(--text);
+        border-left: 2px solid var(--text);
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+    #main #about .about-content .card:nth-child(2) > .card-body{
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
 }
-#main #project{
-    background-color: rgb(244, 245, 240);
+#main #about .about-content .card-icon {
+    font-size: 2.6em;
 }
 
-#main #contact{
-    background-color: rgb(255, 254, 254);
-}
-.title{
+
+.title {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     padding-top: 50px;
 }
-.title h2{
+
+.title h2 {
     font-size: 2.3em;
 }
-.title span{
-    background-color: black;
+
+.title span {
     width: 15%;
     height: 3px;
-    margin:0 5px;
+    margin: 0 5px;
 }
