@@ -296,10 +296,12 @@ body {
 #main #about .about-content {
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
+    height: 75vh;
     font-size: 1.1em;
-    line-height: 2.5;
-    margin-top: 10px;
+    line-height: 2;
+
 }
 
 @media screen and (max-width:840px) {
@@ -309,9 +311,7 @@ body {
 }
 
 #main #about .about-content .card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    text-align: center;
     max-width: 400px;
 }
 @media screen and (min-width:1200px) {
