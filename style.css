@@ -482,15 +482,14 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-
 }
 
 .title h2 {
     font-size: 2.3em;
-}
-
-.title span {
-    width: 15%;
-    height: 3px;
-    margin: 0 5px;
+    background-color: rgb(9, 42, 58);
+    width: 500px;
+    text-align: center;
+    color:#fff;
+    clip-path: polygon(0 0, 90% 0, 100% 100%, 10% 100%);
+    margin:2px 0 10px 0;
 }
