@@ -2,4 +2,4 @@
 
 ## Coming Soon
 
-Replace the markup with Astro Framework
+Replace the project content with Astro Framework
